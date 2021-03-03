@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    color: white;
+    background: black;
+    text-align: center;
+}
+
+a{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+}
+
+header, section, footer{
+    width: 40%;
+    margin: 1.8rem auto;
+}
+
+section input, section button{
+    font-weight: bold;
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1.2rem;
+}
+
+section button#iniciar{
+    background: rgb(138, 196, 138);
+}
+
+section button#encerrar{
+    background: rgb(219, 108, 65);
+}
+
+section button#pausar{
+    background: rgb(153, 218, 229);
+}
+
+footer, section input[type=text]{
+    text-align: center;  
+}

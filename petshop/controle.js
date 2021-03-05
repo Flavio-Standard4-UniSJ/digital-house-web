@@ -26,7 +26,7 @@ const cadastrar = [
     {
         type: "input",
         name: "donopet",
-        message: "nome do cliente?",
+        message: "nome do dono do pet?",
         required: true
     },
     {

@@ -2,20 +2,19 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const { acoes, cadastrar, pesquisar, listar } = require("./controle");
 
+var identificador;
+var listaIdPet = [];
+var listaAnimaizinhos = [];
 
-let listaAnimaizinhos = [];
-if(! fs.existsSync("./registra-pets.json")){
-    fs.writeFileSync("./registra-pets.json", JSON.stringify(listaAnimaizinhos));
-}else{
-    fs.readFileSync("./registra-pets.json");
-}
-
-function Animalzinho(identificador, nomeDono, nomePet, racaPet) {
+function Animalzinho(identificador, nomePet, racaPet, donoPet) {
     this.identificador = identificador;
-    this.nomeDono = nomeDono;
-    this.nomePet = nomePet;
-    this.racaPet = racaPet;
+    this.nomepet = nomePet;
+    this.racapet = racaPet;
+    this.nomedono = donoPet;
 }
+
+var registraPets = JSON.parse(fs.readFileSync('./registraPets.json' , 'utf-8'));
+identificador = registraPets.listaAnimaizinhos[registraPets.listaAnimaizinhos.length-1].identificador
 
 function geradorIdUnico() {
     let idPetAleatorio = Math.random() * 1000000000000000000;
@@ -29,30 +28,35 @@ function geradorIdUnico() {
 inquirer.prompt(acoes).then( escolha =>{
     const tarefa = escolha.tarefa;
     if(tarefa==0){
-        inquirer.prompt(cadastrar).then( (resposta)=>
+        inquirer.prompt(cadastrar).then( resposta =>
             {
-                resposta => new Animalzinho(geradorIdUnico(), resposta.nomecliente.toLowerCase(), resposta.nomepet.toLowerCase(), resposta.racapet.toLowerCase())
-                console.log(`Registro para o pet ${resposta.nomepet} criado com sucesso!`)
-                listaAnimaizinhos.push(resposta);
-                fs.writeFileSync("./registra-pets.json", JSON.stringify(listaAnimaizinhos))
-                console.log( listaAnimaizinhos );
+                resposta  = new Animalzinho(geradorIdUnico(), resposta.nomepet, resposta.racapet, resposta.donopet)
+                registraPets.listaAnimaizinhos.push(resposta)
+                fs.writeFileSync("./registraPets.json", JSON.stringify(registraPets,null,2))
+                console.log( registraPets.resposta );
             }
     );
     }else if(tarefa==1){
-        inquirer.prompt(pesquisar).then(listaAnimaizinhos => {
-            listaAnimaizinhos = fs.readFileSync("./registra-pets.json","utf-8");
-            console.log(listaAnimaizinhos);
+        inquirer.prompt(pesquisar).then(resposta => {
+          
+            registraPets = JSON.parse(fs.readFileSync("./registraPets.json","utf-8"));
+            for(let animais of registraPets.listaAnimaizinhos){
+                for(let animal in animais){
+                    if(animais[animal]==resposta.nomepet)
+                        console.log(animais)
+
+                        //console.log(animais[animal])
+                   
+                }
+            }
         }
         );
     }else if(tarefa==2){
         inquirer.prompt(listar).then( resposta => {
             if(resposta.listarpets){
-                listaAnimaizinhos= fs.readFileSync("./registra-pets.json", "utf-8");
-                console.log(listaAnimaizinhos);
+                registraPets = JSON.parse(fs.readFileSync("./registraPets.json","utf-8"));
+                console.log(registraPets);
             }
         });
     }
 })
-
-
-//console.log({ acoes, cadastrar, pesquisar, listar, alterar })

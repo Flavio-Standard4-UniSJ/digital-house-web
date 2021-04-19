@@ -1,0 +1,112 @@
+<%- include('./partials/head.ejs') %>
+
+   
+<%- include('./partials/menu.ejs'); %>
+
+    <main class="main-legendaries">
+        <h1>Legendaries</h1>
+        <div class="legendarie-details">
+            <% if (legendary) { %>
+                <!--<img src="images/mew.svg" alt="Mew Picture">-->
+                <img src="<%= legendary.urlFoto %>" alt="Mew Picture">
+                <div>
+                    <h2> <%= legendary.name %> </h2>
+                    <p> <%= legendary.description %></p>
+                    <div class="legendarie-stats">
+                        <div>
+                            <p>Health Points</p>
+                            <p><%= legendary.healthPoints %></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Attack</p>
+                            <p><%= legendary.attack %></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Special Attack</p>
+                            <p><%= legendary.specialAttack %></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Experience</p>
+                            <p><%= legendary.experience %></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Defense</p>
+                            <p><%= legendary.defense%></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Special Defense</p>
+                            <p><%= legendary.specialDefense %></p>
+                            <div class="progress-bar">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } else { %>
+                <strong>Nenhum pokemon encontrado.</strong>
+            <% } %>
+        </div>
+        <div class="legendaries-carousel">
+            <img src="images/left-arrow.svg" alt="Left Arrow">
+            <div class="carousel-legendarie-box first">
+                <img src="images/mew.svg" alt="Mew Picture">
+                <div>
+                    <p>Mew</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <div class="carousel-legendarie-box">
+                <img src="images/moltres.svg" alt="Moltres Picture">
+                <div>
+                    <p>Moltres</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <div class="carousel-legendarie-box">
+                <img src="images/articuno.svg" alt="Articuno Picture">
+                <div>
+                    <p>Articuno</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <div class="carousel-legendarie-box">
+                <img src="images/zapdos.svg" alt="Zapdos Picture">
+                <div>
+                    <p>Zapdos</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <div class="carousel-legendarie-box">
+                <img src="images/diance.svg" alt="Diance Picture">
+                <div>
+                    <p>Diance</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <div class="carousel-legendarie-box">
+                <img src="images/xerneas.svg" alt="Xerneas Picture">
+                <div>
+                    <p>Xerneas</p>
+                    <img src="images/pokeball.svg" alt="Pokeball">
+                </div>
+            </div>
+            <img src="images/right-arrow.svg" alt="Left Arrow">
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs'); %>

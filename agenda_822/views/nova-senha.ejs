@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/images/logo.png" alt="agenda 822">
+            <a href="#" target="_self"><img src="/images/entrar.svg"></a>
+            <h1><%= title %></h1>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section>
+            <article>
+                <form action="" method="POST">
+                    <label for="email">email</label>
+                    <input type="text" name="email" id="email" value="email@teste.com" disabled>
+                    <label for="senha">senha</label>
+                    <input type="text" name="senha" id="senha">
+                    <label for="confirmar-senha">confirmar senha</label>
+                    <input type="text" name="confirmar-senha" id="confirmar-senha">
+                    <input type="submit" name="salvar" value="salvar">
+                </form>
+            </article>
+        </section>
+        <footer>
+            <hr>
+            <p>rodapé</p>
+            <p><a href="#">redes sociais</a></p>
+        </footer>
+    </main>
+</body>
+</html>

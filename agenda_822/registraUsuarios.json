@@ -1,0 +1,46 @@
+{
+  "novo_usuario": [
+    {
+      "id": 0,
+      "nome": "Lorem Ipsum Tenorium",
+      "cpf": "09001011109",
+      "data_nascimento": "1981-12-02",
+      "telefone": "2140043030",
+      "email": "tenorium@example.com",
+      "senha": "123456",
+      "pin": "981276346",
+      "endereco": "Rua Jaburu",
+      "avatar": "/images/avatar.svg",
+      "profissao": "auxiliar de escritório",
+      "salario": "2500"
+    },
+    {
+      "id": 1,
+      "nome": "Lorem Ipsum",
+      "cpf": "09001011109",
+      "data_nascimento": "1981-12-20",
+      "telefone": "2130033030",
+      "email": "lorem@example.com",
+      "senha": "123456",
+      "pin": "981276346",
+      "endereco": "Rua Jaburu",
+      "avatar": "/images/avatar.svg",
+      "profissao": "auxiliar de serviços gerais",
+      "salario": "2300"
+    },
+    {
+      "id": 2,
+      "nome": "Lorem Ipsum Dolorem",
+      "cpf": "00001011109",
+      "data_nascimento": "1971-08-07",
+      "telefone": "2130033033",
+      "email": "lorem@exemplo.br",
+      "senha": "12345678",
+      "pin": "941276386",
+      "endereco": "Rua Jaburu",
+      "avatar": "/images/avatar.svg",
+      "profissao": "porteiro",
+      "salario": "2780"
+    }
+  ]
+}

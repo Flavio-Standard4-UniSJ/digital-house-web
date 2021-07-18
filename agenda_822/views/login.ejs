@@ -10,7 +10,7 @@
     <header>
         <nav>
             <img src="/images/logo.png" alt="agenda 822">
-            <a href="#" target="_self"><img src="/images/entrar.svg"></a>
+            <a href="/login" target="_self"><img src="/images/entrar.svg"></a>
             <h1><%= title %></h1>
         </nav>
         <hr>
@@ -18,6 +18,9 @@
     <main>
         <section>
             <article>
+                <% if(typeof usuario != "undefined"){ %>
+                    <div><p><%= usuario.email %> AND <%= usuario.senha %> <a href="/">Voltar para Home</a>  </p></div>
+                <% } else{ %>   
                 <form action="" method="POST">
                     <label for="email">email</label>
                     <input type="text" name="email" id="email">
@@ -25,6 +28,7 @@
                     <input type="password" name="senha" id="senha">
                     <input type="submit" name="entrar" value="entrar">
                 </form>
+                <% } %>
                 <div>
                     <a href="#" target="_self" title="recuperar senha">esqueci minha senha</a>
                 </div>

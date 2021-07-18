@@ -10,7 +10,7 @@
     <header>
         <nav>
             <img src="/images/logo.png" alt="agenda 822">
-            <a href="#" target="_self"><img src="/images/entrar.svg"></a>
+            <a href="/login" target="_self"><img src="/images/entrar.svg"></a>
             <h1><%= title %></h1>
         </nav>
         <hr>
@@ -19,31 +19,46 @@
         <section>
             <article>
                 <% if(typeof usuario != "undefined"){ %>
-                    <div><p><%= usuario.nome %> cadastrado com sucesso!</p></div>
+                    <div><p><%= usuario.nome %> cadastrado com sucesso! <a href="/">Voltar para Home</a>  </p></div>
                 <% } else{ %>    
                 <form action="" method="POST">
                     <label for="nome">Nome do usuário</label>
                     <input type="text" name="nome" id="nome" value="">
+                   
                     <label for="cpf">cpf</label>
                     <input type="text" name="cpf" id="cpf" value="">
-                    <label for="tel">telefone</label>
+                   
                     <label for="data_nascimento">data nascimento</label>
                     <input type="date" name="data_nascimento" id="data_nascimento" value="">
-                    <input type="text" name="tel" id="tel" value="">
-                    <label for="pin">informar um número pin para recuperação de conta</label>
-                    <input type="text" name="pin" id="pin" value="">
+                   
+                    <label for="telefone">telefoneefone</label>
+                    <input type="text" name="telefone" id="telefone" value="">
+                   
                     <label for="email">email</label>
                     <input type="text" name="email" id="email" value="">
+                   
                     <label for="senha">senha</label>
-                    <input type="text" name="senha" id="senha" value="">
+                    <input type="text" name="senha" minlength="6" maxlength="9" id="senha" value="">
+                    
                     <label for="confirma-senha">confirmar senha</label>
-                    <input type="text" name="confirma-senha" id="confirma-senha">
+                    <input type="text" name="confirma-senha" minlength="6" maxl}ength="9" id="confirma-senha">
+
+                    <label for="pin">informar um número pin para recuperação de conta</label>
+                    <input type="text" name="pin" minlength="9" maxlength="9" id="pin" value="">
+
+                    
+                    <label for="endereco">endereço</label>
+                    <input type="text" name="endereco" id="endereco"  value="">
+                   
                     <label for="avatar">avatar</label>
                     <input type="file" name="avatar" id="avatar">
+                   
                     <label for="profissao">profissão</label>
                     <input type="text" name="profissao" id="profissao" value="">
+                   
                     <label for="salario">salario</label>
                     <input type="text" name="salario" id="salario" value="">
+                   
                     <input type="submit" name="cadastrar" value="cadastrar">
                 </form>
                 <% } %>

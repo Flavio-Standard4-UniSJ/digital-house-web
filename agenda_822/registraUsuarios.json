@@ -41,6 +41,29 @@
       "avatar": "/images/avatar.svg",
       "profissao": "porteiro",
       "salario": "2780"
+    },
+    {
+      "id": 3,
+      "nome": "Articuno",
+      "cpf": "09001011109",
+      "data_nascimento": "1987-01-14",
+      "telefone": "2130033033",
+      "email": "articuno@exemplo.br",
+      "senha": "asdfgçlkj",
+      "pin": "981276346",
+      "endereco": "Rua B, 32",
+      "profissao": "auxiliar de escritório",
+      "salario": "2300",
+      "avatar": {
+        "fieldname": "avatar",
+        "originalname": "ARTICUNO.png",
+        "encoding": "7bit",
+        "mimetype": "image/png",
+        "destination": "C:\\Users\\miserere\\Documents\\digital-house\\projeto\\agenda_822\\public\\uploads",
+        "filename": "avatar-1627408571022-713849531",
+        "path": "C:\\Users\\miserere\\Documents\\digital-house\\projeto\\agenda_822\\public\\uploads\\avatar-1627408571022-713849531",
+        "size": 116539
+      }
     }
   ]
 }

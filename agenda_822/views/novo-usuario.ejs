@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
@@ -21,45 +22,45 @@
                 <% if(typeof usuario != "undefined"){ %>
                     <div><p><%= usuario.nome %> cadastrado com sucesso! <a href="/">Voltar para Home</a>  </p></div>
                 <% } else{ %>    
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    
                     <label for="nome">Nome do usuário</label>
-                    <input type="text" name="nome" id="nome" value="">
+                    <input type="text" name="nome" id="nome" value="" />
                    
                     <label for="cpf">cpf</label>
-                    <input type="text" name="cpf" id="cpf" value="">
+                    <input type="text" name="cpf" id="cpf" value="" />
                    
                     <label for="data_nascimento">data nascimento</label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" value="">
+                    <input type="date" name="data_nascimento" id="data_nascimento" value="" />
                    
-                    <label for="telefone">telefoneefone</label>
-                    <input type="text" name="telefone" id="telefone" value="">
+                    <label for="telefone">telefone</label>
+                    <input type="tel" name="telefone" id="telefone" value="" />
                    
                     <label for="email">email</label>
-                    <input type="text" name="email" id="email" value="">
+                    <input type="email" name="email" id="email" value="" />
                    
                     <label for="senha">senha</label>
-                    <input type="text" name="senha" minlength="6" maxlength="9" id="senha" value="">
+                    <input type="text" name="senha" minlength="6" maxlength="9" id="senha" value="" />
                     
                     <label for="confirma-senha">confirmar senha</label>
-                    <input type="text" name="confirma-senha" minlength="6" maxl}ength="9" id="confirma-senha">
+                    <input type="text" name="confirma-senha" minlength="6" maxlength="9" id="confirma-senha" />
 
                     <label for="pin">informar um número pin para recuperação de conta</label>
-                    <input type="text" name="pin" minlength="9" maxlength="9" id="pin" value="">
-
+                    <input type="text" name="pin" minlength="6" maxlength="9" id="pin" value="" />
                     
                     <label for="endereco">endereço</label>
-                    <input type="text" name="endereco" id="endereco"  value="">
-                   
-                    <label for="avatar">avatar</label>
-                    <input type="file" name="avatar" id="avatar">
+                    <input type="text" name="endereco" id="endereco"  value="" />
                    
                     <label for="profissao">profissão</label>
-                    <input type="text" name="profissao" id="profissao" value="">
+                    <input type="text" name="profissao" id="profissao" value="" />
                    
                     <label for="salario">salario</label>
-                    <input type="text" name="salario" id="salario" value="">
+                    <input type="text" name="salario" id="salario" value="" />
                    
-                    <input type="submit" name="cadastrar" value="cadastrar">
+                    <label for="avatar">avatar</label>
+                    <input type="file" name="avatar" id="avatar"  accept=".png, .jpg, .jpeg" />
+                    
+                    <input type="submit" name="cadastrar" onclick="return validarSenha()" value="cadastrar" />
                 </form>
                 <% } %>
             </article>
@@ -70,5 +71,6 @@
             <p><a href="#">redes sociais</a></p>
         </footer>
     </main>
+    <script src="/javascripts/funcoes.js"></script>
 </body>
 </html>

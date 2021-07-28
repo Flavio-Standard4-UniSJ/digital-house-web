@@ -20,7 +20,7 @@ router.post('/login', usuarioController.entrar);
 
 //upload.array('avatar')   -- múltiplos arquivos
 
-router.post('/', upload.single('avatar'), /*valida.valida_cadastro ,*/ usuarioController.cadastraUsuario);
+router.post('/', upload.single('avatar'), valida.valida_cadastro , usuarioController.cadastraUsuario);
 
 router.get('/editar', usuarioController.form_editar)
 

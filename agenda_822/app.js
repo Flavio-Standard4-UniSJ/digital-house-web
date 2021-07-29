@@ -9,11 +9,10 @@ const multer = require('multer')
 
 const indexRouter = require('./routes/index');
 const usuarioRouter = require('./routes/usuario');
+const cadastroRouter = require('./routes/cadastroUsuario')
 const storage = require('./config/multer')
 
 const app = express();
-
-const upload = multer({storage : storage});
 
 // view engine setup
 app.use(methodOverride('_method'))
@@ -28,8 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/', usuarioRouter);
-app.use('/novo-usuario', usuarioRouter);
-app.use('/editar-usuario', usuarioRouter);
+app.use('/login', usuarioRouter);
+app.use('/restrito', usuarioRouter);
+app.use('/novo-usuario', cadastroRouter);
+app.use('/editar', cadastroRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

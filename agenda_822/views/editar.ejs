@@ -1,0 +1,57 @@
+<%- include('./global/head.ejs') %>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/images/logo.png" alt="agenda 822">
+            <a href="/login" target="_self"><img src="/images/entrar.svg"></a>
+            <h1><%= title %> Editar Usuário</h1>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        <section>
+           <article>
+            <form action="" method="POST" enctype="multipart/form-data">
+                        
+                <label for="nome">Nome do usuário</label>
+                <input type="text" name="nome" id="nome" disabled/>
+            
+                <label for="cpf">cpf</label>
+                <input type="text" name="cpf" id="cpf" disabled />
+            
+                <label for="data_nascimento">data nascimento</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" disabled />
+            
+                <label for="telefone">telefone</label>
+                <input type="tel" name="telefone" id="telefone" />
+            
+                <label for="email">email</label>
+                <input type="email" name="email" id="email" />
+            
+                <label for="senha">senha</label>
+                <input type="text" name="senha" minlength="6" maxlength="9" id="senha" />
+                
+                <label for="confirma-senha">confirmar senha</label>
+                <input type="text" name="confirma-senha" minlength="6" maxlength="9" id="confirma-senha" />
+
+                <label for="pin">informar um número pin para recuperação de conta</label>
+                <input type="text" name="pin" minlength="6" maxlength="9" id="pin" />
+                
+                <label for="endereco">endereço</label>
+                <input type="text" name="endereco" id="endereco" />
+            
+                <label for="profissao">profissão</label>
+                <input type="text" name="profissao" id="profissao" />
+            
+                <label for="salario">salario</label>
+                <input type="text" name="salario" id="salario" />
+            
+                <label for="avatar">avatar</label>
+                <input type="file" name="avatar" id="avatar"  accept=".png, .jpg, .jpeg" multiple />
+                
+                <input type="submit" name="cadastrar" onclick="return validarSenha()" value="cadastrar" />
+            </form>
+            </article>
+        </section>
+        <%- include('./global/footer.ejs') %>

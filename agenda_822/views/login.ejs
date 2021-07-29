@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+<%- include('./global/head.ejs') %>
 </head>
 <body>
     <header>
@@ -18,10 +12,10 @@
     <main>
         <section>
             <article>
-                <% if(typeof usuario != "undefined"){ %>
-                    <div><p><%= usuario.email %> AND <%= usuario.senha %> <a href="/">Voltar para Home</a>  </p></div>
+                <% if(typeof email != "undefined" && typeof senha != "undefined"){ %>
+                    <div><p><%= email %> AND <%= senha %> <a href="/">Voltar para Home</a>  </p></div>
                 <% } else{ %>   
-                <form action="" method="POST">
+                <form action="/restrito" method="POST">
                     <label for="email">email</label>
                     <input type="text" name="email" id="email">
                     <label for="senha">senha</label>
@@ -34,11 +28,5 @@
                 </div>
             </article>
         </section>
-        <footer>
-            <hr>
-            <p>rodapé</p>
-            <p><a href="#">redes sociais</a></p>
-        </footer>
-    </main>
-</body>
-</html>
+<%- include('./global/footer.ejs') %>
+      

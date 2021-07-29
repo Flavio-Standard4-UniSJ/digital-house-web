@@ -12,7 +12,7 @@ function mudarImagem(){
 }
 function iniciaSlider(){
     boxSlider.style.backgroundImage="url('"+imgSlider[slideAtual]+"')";
-    tempoSlider = setInterval(mudarImagem, 1000);
+    tempoSlider = setInterval(mudarImagem, 3000);
 }
 function troca(imagem){
     slideAtual += imagem;

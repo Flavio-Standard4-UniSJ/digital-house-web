@@ -10,6 +10,8 @@ ROTA USUARIOS: localhost/usuarios
 ROTA USUARIO ESPECÍFICO: localhost:3000/hello/nome_do_usuario
 **
 *
+https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/
+*
 */
 const express = require('express');
 const axios = require('axios');

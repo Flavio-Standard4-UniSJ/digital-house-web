@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legendaries</title>
+    <link href="stylesheets/index.css" rel="stylesheet" />
+    <link href="stylesheets/pokedex.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img src="images/logo.svg" alt="Logo" />
+        <button type="button" class="hamburguer-menu">
+            <img src="images/hamburguer.svg" alt="Hamburguer Menu" />
+        </button>
+        <nav class="navbar nav-legendaries">
+            <a href="/">
+                Home
+            </a>
+            <a href="/pokedex">
+                Pokédex
+            </a>
+            <a href="/legendaries">
+                Legendaries
+            </a>
+            <a href="#">
+                Documentation
+            </a>
+            <a href="/coaches" id="signup">
+                New Coach
+            </a>
+        </nav>
+    </header>
+    <main class="main-legendaries">
+       <h1>Cadastrar Pokemon Legendário</h1>
+       <div>
+            <form action="" method="POST">
+                <fieldset>
+                    <label for="name">Nome do pokemon</label>
+                    <input type="text" name="name" id="name">
+                    <label for="description">descrição</label>
+                    <input type="text" name="description" id="description">
+                    <label for="type">tipo</label>
+                    <input type="text" name="type" id="type">
+                    <label for="healthPoints">healthPoints</label>
+                    <input type="text" name="healthPoints" id="healthPoints">
+                    <label for="specialAttack">specialAttack</label>
+                    <input type="text" name="specialAttack" id="specialAttack">
+                    <label for="defense">defense</label>
+                    <input type="text" name="defense" id="defense">
+                    <label for="attack">attack</label>
+                    <input type="text" name="attack" id="attack">
+                    <label for="experience">experience</label>
+                    <input type="text" name="experience" id="experience">
+                    <label for="specialDefense">specialDefense</label>
+                    <input type="text" name="specialDefense" id="specialDefense">
+                    <input type="submit" name="salvar" value="salvar" class="btnAcao">
+                </fieldset>
+            </form>
+       </div>
+    </main>
+</body>
+
+</html>

@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+const dashboardController = require("../controller/dashboardController");
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Agenda 822' });
-});
+router.get('/', dashboardController.index);
 
 module.exports = router;

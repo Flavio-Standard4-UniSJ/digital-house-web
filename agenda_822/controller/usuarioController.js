@@ -1,55 +1,41 @@
-const multer = require('multer')
-const { v4: uuidv4 } = require('uuid')
-const fs =  require('fs')
+const multer = require('multer');
+const { v4: uuidv4 } = require('uuid');
 
 const  storage = require('../config/multer')
 
 var upload = multer().single('avatar') 
-
-var novo_usuario=[]
-var listaUsuarios=[]
-
-var registraUsuario = JSON.parse(fs.readFileSync('./registraUsuarios.json' , 'utf-8'))
-id = registraUsuario.novo_usuario[registraUsuario.novo_usuario.length-1].id
+let usuario = [];
 
 const usuarios = {
+    showFormNovoUsuario: function(req, res, next) {
+        res.render('novo-usuario', { title: 'Agenda 822'});
+    },
     cadastraUsuario: (req, res, next) => {
-            let avatar = req.file
-            let id = uuidv4()
-            let { nome, cpf, data_nascimento, telefone, email, senha, pin, endereco, profissao, salario } = req.body
-        
-            let usuario = { id, nome, cpf, data_nascimento, telefone, email, senha, pin, endereco, profissao, salario, avatar }
-       
-            registraUsuario.novo_usuario.push(usuario)
-            fs.writeFileSync("./registraUsuarios.json", JSON.stringify(registraUsuario,null,2))
-
-            res.render('novo-usuario', { title: 'Agenda 822', usuario: registraUsuario });    
+        let avatar = req.file;
+        let id = uuidv4();
+        let { nome, cpf, data_nascimento, telefone, email, senha, pin, endereco, profissao, salario } = req.body;
+        usuario.push({ id, nome, cpf, data_nascimento, telefone, email, senha, pin, endereco, profissao, salario, avatar });
+        res.render('novo-usuario', { title: 'Agenda 822', usuario: usuario });    
+    },
+    form_editar: (req, res, next)=>{
+        res.render('editar', { title: 'Agenda 822'});
+    },
+    editarUsuario: (req, res, next) => {
+        res.render('editar-usuario', { title: 'Agenda 822'});
     },
     form_login: (req, res, next) => {
         res.render('login', { title: 'Agenda 822'} );
     },
-    form_editar: (req, res, next)=>{
-        registraUsuario = JSON.parse(fs.readFileSync("./registraUsuarios.json" , 'utf-8'))
-        for(let usuarios of registraUsuario.novo_usuario){
-            listaUsuarios.push(usuarios)
-        }
-        res.render('editar', { title: 'Agenda 822', elementos:listaUsuarios });
-    },
-    editarUsuario: (req, res, next) => {
-        registraUsuario = JSON.parse(fs.readFileSync("./registraUsuarios.json" , 'utf-8'))
-        res.render('editar-usuario', { title: 'Agenda 822', usuario: registraUsuario });
-    },
-    
     entrar: (req, res, next) => {
         const { email, senha } = req.body
-        registraUsuario = JSON.parse(fs.readFileSync('./registraUsuarios.json' , 'utf-8'))  
-        for(let usuarios of registraUsuario.novo_usuario){
-           if(email==usuarios.email){
-             return res.render('login', { title: 'Agenda 822', usuarios })
-           } 
-           return res.render('login', { title: 'Agenda 822' })
-        }
-       res.render('login', { title: 'Agenda 822', usuario: usuarios }) 
+        
+       res.render('login', { title: 'Agenda 822'}) 
+    },
+    show_form_nova_senha:(req, res, next)=>{
+        res.render('recuperar-senha', { title: 'Agenda 822'}) 
+    },
+    salvar_nova_senha: (req, res, next)=>{
+        res.redirect('/', { title: 'Agenda 822'});
     }
 }
 module.exports=usuarios

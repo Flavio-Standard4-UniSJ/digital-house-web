@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= title %></title>
 </head>
 <body>
@@ -19,19 +20,18 @@
         <section>
             <article>
                 <% if(typeof usuario != "undefined"){ %>
-                    <div><p><%= usuario.email %> AND <%= usuario.senha %> <a href="/">Voltar para Home</a>  </p></div>
-                <% } else{ %>   
-                <form action="" method="POST">
-                    <label for="email">email</label>
-                    <input type="text" name="email" id="email">
-                    <label for="senha">senha</label>
-                    <input type="password" name="senha" id="senha">
-                    <input type="submit" name="entrar" value="entrar">
+                    <div><p><%= usuario.nome %> cadastrado com sucesso! <a href="/">Voltar para Home</a>  </p></div>
+                <% } else{ %>    
+                <form action="/recuperar-senha/_method=PUT" method="POST" enctype="multipart/form-data">
+                    <label for="senha">Nova senha</label>
+                    <input type="text" name="senha" minlength="6" maxlength="9" id="senha" value="" />
+                    
+                    <label for="confirma-senha">confirmar senha</label>
+                    <input type="text" name="confirma-senha" minlength="6" maxlength="9" id="confirma-senha" />
+
+                    <input type="submit" name="editar" onclick="return validarSenha()" value="editar" />
                 </form>
                 <% } %>
-                <div>
-                    <a href="/recuperar-senha" target="_self" title="recuperar senha">esqueci minha senha</a>
-                </div>
             </article>
         </section>
         <footer>
@@ -40,5 +40,6 @@
             <p><a href="#">redes sociais</a></p>
         </footer>
     </main>
+    <script src="/javascripts/funcoes.js"></script>
 </body>
 </html>

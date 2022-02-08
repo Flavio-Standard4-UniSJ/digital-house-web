@@ -1,8 +1,40 @@
-body {
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html, body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a, p, h1, h2, h3, h4, h5, h6 {
+  text-align: justify;
+  color: #00B7FF;
+  line-height: 2rem;
+}
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-a {
-  color: #00B7FF;
+@media (min-width: 320px){
+	img.logo, img.entrar {
+		width: 70px;
+		height: 70px;
+	}
+}
+
+@media (min-width: 425px){
+	img.logo, img.entrar {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+@media (min-width: 768px){
+	img.logo, img.entrar {
+		width: 130px;
+		height: 130px;
+	}
 }

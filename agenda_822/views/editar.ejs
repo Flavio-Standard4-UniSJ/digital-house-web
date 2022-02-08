@@ -20,18 +20,18 @@
         <section>
             <article>
                 <% if(typeof usuario != "undefined"){ %>
-                    <div><p><%= usuario.nome %> cadastrado com sucesso! <a href="/">Voltar para Home</a>  </p></div>
+                    <div><p><%= usuario.nome %> editado com sucesso! <a href="/">Voltar para Home</a>  </p></div>
                 <% } else{ %>    
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="/editar-usuario/_method=PUT" method="POST" enctype="multipart/form-data">
                     
                     <label for="nome">Nome do usuário</label>
-                    <input type="text" name="nome" id="nome" value="" />
+                    <input type="text" name="nome" id="nome" value=""  disabled="disabled" />
                    
                     <label for="cpf">cpf</label>
-                    <input type="text" name="cpf" id="cpf" value="" />
+                    <input type="text" name="cpf" id="cpf" value="" disabled="disabled" />
                    
                     <label for="data_nascimento">data nascimento</label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" value="" />
+                    <input type="date" name="data_nascimento" id="data_nascimento" value="" disabled="disabled" />
                    
                     <label for="telefone">telefone</label>
                     <input type="tel" name="telefone" id="telefone" value="" placeholder="+5521977772222" />
@@ -45,9 +45,6 @@
                     <label for="confirma-senha">confirmar senha</label>
                     <input type="text" name="confirma-senha" minlength="6" maxlength="9" id="confirma-senha" />
 
-                    <label for="pin">informar um número pin para recuperação de conta</label>
-                    <input type="text" name="pin" minlength="6" maxlength="9" id="pin" value="" />
-                    
                     <label for="endereco">endereço</label>
                     <input type="text" name="endereco" id="endereco"  value="" />
                    
@@ -60,7 +57,7 @@
                     <label for="avatar">avatar</label>
                     <input type="file" name="avatar" id="avatar"  accept=".png, .jpg, .jpeg" />
                     
-                    <input type="submit" name="cadastrar" onclick="return validarSenha()" value="cadastrar" />
+                    <input type="submit" name="salvar dados" onclick="return validarSenha()" value="salvar dados" />
                 </form>
                 <% } %>
             </article>

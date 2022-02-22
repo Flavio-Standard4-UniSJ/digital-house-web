@@ -10,6 +10,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const multer = require('multer');
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -21,6 +22,8 @@ const upload = multer({storage : storage});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));
 
 app.use(logger('dev'));
 app.use(express.json());

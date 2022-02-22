@@ -2,6 +2,8 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 const multer = require('multer');
 
+const userService = require('../services/userServices');
+
 const storage = require('../config/multer');
 
 let listUser = [];
@@ -20,7 +22,8 @@ const controller = {
         }
         const foto = req.file;
         const { username, email, senha } = req.body;
-        const newUser = { username, email, senha, foto };
+
+        const newUser = userServices.createUser({ username, email, senha, foto });
         readUsuarios = fs.readFileSync('./usuarios.json', 'utf-8');
         listUser=JSON.parse(readUsuarios);
         listUser.push(newUser);

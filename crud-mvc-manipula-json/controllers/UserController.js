@@ -32,6 +32,18 @@ const controller = {
         const newUser = userServices.createUser({ username, email, senha, foto });
         
         return res.render('users', { title: 'Express', usuario: newUser });
+    },
+    viewformedit: (req, res)=>{
+        const { username } = req.params;
+        let usuario =  userServices.busca(username); 
+        return res.render('editar', { title: 'Express', usuario: usuario });
+    },
+    update: (req, res) =>{
+        const foto = req.file;
+        const { identificador, username, email, senha } = req.body;
+        const usuarioUpdate = userServices.updatedUser({ identificador, username, email, senha, foto });
+        console.log(usuarioUpdate);
+        return res.render('editar', { title: 'Express', usuario: usuarioUpdate });
     }
 }
 module.exports=controller;

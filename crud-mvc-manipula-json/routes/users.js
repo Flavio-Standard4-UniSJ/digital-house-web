@@ -12,5 +12,7 @@ const router = express.Router();
 router.get('/', controller.viewform);
 router.get('/:username', controller.searchUser);//busca um usuario
 router.post('/', upload.array('foto'), validacao, controller.create);
+router.get('/editar/:username', controller.viewformedit);
+router.put('/editar', upload.array('foto'), validacao, controller.update);
 
 module.exports = router;

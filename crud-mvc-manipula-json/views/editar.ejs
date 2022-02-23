@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Edit User to <%= title %></h1>
+    <form action="/users/editar?_method=PUT" method="post" enctype="multipart/form-data">
+      <input type="text" id="identificador" name="identificador" value="<%= usuario[0].username %>" hidden>
+      <label for="username">Nome de Usuário</label>
+      <input type="text" id="username" name="username" value="<%= usuario[0].username %>" />
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" value="<%= usuario[0].email %>" />
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" value="<%= usuario[0].senha %>" />
+      <label for="foto">selecione novas fotos</label>
+      <input type="file" id="foto" name="foto" multiple>
+      <input type="submit" name="editar" value="editar" />
+    </form>
+  </body>
+</html>

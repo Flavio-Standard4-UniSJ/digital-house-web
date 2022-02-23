@@ -10,9 +10,8 @@ const userServices = {
         if(usuario.length == 0) {
             return res.status(400).send(`O usuário não está na lista!`);
         }else {
-            console.log(usuario);//se o usuario foi encontrado retorna se nao informa que nao esta na lista
+            return usuario;
         }
-        return usuario;
     },
     createUser: ({ 
         username, 
@@ -29,7 +28,30 @@ const userServices = {
                 listUser.push(usuario);
                 fs.writeFileSync('./usuarios.json', JSON.stringify(listUser), 'utf-8');
         return usuario;        
-    }
+    },
+    updatedUser: ({
+        identificador,
+        username,
+        email,
+        senha,
+        foto
+    }) =>{
+        const usuario = userServices.busca(identificador);
+       
+        readUsuarios = fs.readFileSync('./usuarios.json', 'utf-8');
+        listUser=JSON.parse(readUsuarios);
+        let listaAtualizada= listUser.map((usuario)=>{
+            if(usuario.username==identificador){
+                usuario.username = username;
+                usuario.email=email;
+                usuario.senha=senha;
+                usuario.foto=foto;
+            }
+        })
+        console.log(listaAtualizada);
+        fs.writeFileSync('./usuarios.json', JSON.stringify(listUser), 'utf-8');
+        return usuario;
+        }
 }
 
 module.exports = userServices;

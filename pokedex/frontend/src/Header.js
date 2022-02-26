@@ -1,9 +1,10 @@
 import logo from './assets/images/logo.svg';
 import hamburguer from './assets/images/hamburguer.svg';
 
+
 function Header(){
     return (
-        <header>
+<header>
 <img src={logo} alt="Logo" />
 <button type="button" class="hamburguer-menu">
     <img src={hamburguer} alt="Hamburguer Menu" />
@@ -23,6 +24,6 @@ function Header(){
     </a>
 </nav>
 </header>
-    )
+    );
 }
 export default Header;

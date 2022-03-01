@@ -1,10 +1,17 @@
 const express = require('express');
-const router = express.Router();
+const multer = require('multer');
+
 const controller = require('../controllers/LegendariesController');
+const storage = require('../config/multer');
+
+const router = express.Router();
+
+const upload = multer({storage : storage});
 
 /* GET legendaries. */
 router.get('/', controller.index);
-router.post('/', controller.create);
+router.get('/newLegendary', controller.viewform);
+router.post('/newLegendary', upload.array('foto'), controller.create);
 router.put('/:id', controller.update);
 
 module.exports = router;

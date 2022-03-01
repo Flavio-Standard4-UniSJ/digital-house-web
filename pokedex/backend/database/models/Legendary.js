@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Legendary = sequelize.define("Legendary", 
+    const Legendary = sequelize.define("legendary", 
     {
         id: {
             type: DataTypes.INTEGER,
@@ -7,13 +7,13 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true
         },
         name: {
-            type: DataTypes.STRING(100),            
+            type: DataTypes.STRING(100)
         },
         description: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING
         },
         type: {
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING(100)
         },
         healthPoints: {
             type: DataTypes.FLOAT,
@@ -34,12 +34,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
         },
         url: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false
+        }
     },
     {
-        tableName: 'legendaries',
-    }
-    );
+        tableName: 'legendary'
+    });
     return Legendary;
 };

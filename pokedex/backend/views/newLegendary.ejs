@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="../stylesheets/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../stylesheets/legendaries.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+</head>
+<body>
+    <header>
+        <img src="../images/logo.svg" alt="Logo" />
+        <button type="button" class="hamburguer-menu">
+            <img src="../images/hamburguer.svg" alt="Hamburguer Menu" />
+        </button>
+        <nav class="navbar nav-legendaries">
+            <a href="/">
+                Home
+            </a>
+            <a href="/pokedex">
+                Pokédex
+            </a>
+            <a href="/legendaries">
+                Legendaries
+            </a>
+            <a href="/documentation">
+                Documentation
+            </a>
+            <a href="/coach">
+                New Coach
+            </a>
+            <a href="/coach/login">
+                Login
+            </a>
+        </nav>
+        </header>
+    <main>
+        <h2>Principal</h2>
+        <div>
+            <h3>New Lendário</h3>
+            <form action="/legendaries/newLegendary" method="post" enctype="multipart/form-data">
+
+                <label for="name">Nome de Pokemon Lendário</label>
+                <input type="text" id="name" name="name" />
+                
+                <label for="description">Descrição</label>
+                <input type="text" id="description" name="description" />
+                
+                <label for="type">Tipo</label>
+                <input type="text" id="type" name="type" />
+               
+                <label for="healthPoints">Pontos de Saúde</label>
+                <input type="number" id="healthPoints" name="healthPoints" />
+                
+                <label for="specialAttack">Ataque Especial</label>
+                <input type="number" id="specialAttack" name="specialAttack" />
+                
+                <label for="defense">Defesa</label>
+                <input type="number" id="defense" name="defense" />
+               
+                <label for="attack">Ataque Comum</label>
+                <input type="number" id="attack" name="attack" />
+               
+                <label for="experience">Experiência</label>
+                <input type="number" id="experience" name="experience" />
+                
+                <label for="specialDefense">Defesa Especial</label>
+                <input type="number" id="specialDefense" name="specialDefense" />
+                        
+                <label for="url">url do pokemon</label>
+                <input type="text" id="url" name="url" />
+
+                <label for="foto">escolher foto do perfil do lendário</label>
+                <input type="file" id="foto" name="foto" multiple>
+                
+                <input type="submit" name="salvar" value="salvar" />
+              </form>
+        </div>
+    </main>
+</body>
+</html>

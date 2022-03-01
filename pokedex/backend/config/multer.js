@@ -1,12 +1,15 @@
 const multer = require('multer');
-const { path, resolve, extname } = require('path');
+const crypto = require('crypto');
+const { resolve, extname } = require('path');
 
 const storage = multer.diskStorage({
     destination: resolve(__dirname, '..', 'public', 'uploads'),
     filename: (req, file, cb) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix)
-    }
+        crypto.randomBytes(16, (err, value) => {
+            if(err) cb(err);
+            return cb(null, value.toString('hex') + extname(file.originalname))
+        })
+    },
 });
 
 module.exports = storage;

@@ -1,15 +1,25 @@
-
+const multer = require('multer');
 const LegendariesService = require('../services/LegendariesService');
 
+const storage = require('../config/multer');
+
+var upload = multer().array('foto');
+
 const controller = {
-    index: (req, res) => {
-        const { name } = req.query;
-
-        const legendary = LegendariesService.listPokemonData(name);        
-
-        return res.json(legendary);
+    index: async (req, res) => {
+        const legendary = await LegendariesService.listLegendaries(); 
+        return res.render('legendaries', { legendary});
     },
-    create: (req, res) => {
+    legendary: async (req, res) => {
+        const { name } = req.params;
+        const pokemon = await LegendariesService.pokemonDados(name);
+        return res.json({ pokemon});
+    },
+    viewform: (req,res) => {
+        return res.render('newLegendary');
+    },
+    create: async (req, res) => {        
+        const foto = req.file;
         const { 
             name, 
             description, 
@@ -20,14 +30,19 @@ const controller = {
             attack, 
             experience, 
             specialDefense,
-            urlFoto
+            url
         } = req.body;
-
-        if (!description) { 
-            return res.status(400).json({error: "Description is required"});          
-        }
-
-        const legendary = LegendariesService.createLegendary(
+        console.log({name, 
+            description, 
+            type, 
+            healthPoints, 
+            specialAttack, 
+            defense, 
+            attack, 
+            experience, 
+            specialDefense,
+            url})
+        const legendary = await LegendariesService.createLegendary({
             name, 
             description, 
             type, 
@@ -37,9 +52,9 @@ const controller = {
             attack, 
             experience, 
             specialDefense,
-            urlFoto
-        ); 
-        return res.json(legendary);
+            url
+        }); 
+        return res.render('newLegendary', {legendary});
     },
     update: (req, res) => { 
         const { id } = req.params;
@@ -54,10 +69,17 @@ const controller = {
             experience, 
             specialDefense
         } = req.body;
-
-        if (!description) { 
-            return res.status(400).json({error: "Description is required"});          
-        }
+        const updated = LegendariesService.updatedLegendary(
+            id,
+            name, 
+            description, 
+            type, 
+            healthPoints, 
+            specialAttack, 
+            defense, 
+            attack, 
+            experience, 
+            specialDefense);
         return res.json();      
     }
 }

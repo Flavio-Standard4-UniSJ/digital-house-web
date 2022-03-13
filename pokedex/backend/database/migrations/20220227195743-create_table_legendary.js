@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       type: {
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(45)
       },
       healthPoints: {
         type: Sequelize.FLOAT,

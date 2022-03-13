@@ -8,14 +8,21 @@ const Coach = sequelize.define("coach",
         autoIncrement: true
     },
     nome: {
-        type: DataTypes.STRING(100)
+        type: DataTypes.STRING(100),
+        allowNull: false
     },
     email: { 
         type: DataTypes.STRING(100),
-        unique: true
+        unique: true,
+        allowNull: false
     },
     senha: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    perfil: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     createdAt: {
         type: DataTypes.DATE,

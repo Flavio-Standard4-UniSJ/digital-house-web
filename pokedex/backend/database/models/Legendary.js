@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         type: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(45)
         },
         healthPoints: {
             type: DataTypes.FLOAT,

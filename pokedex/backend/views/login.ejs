@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link href="../stylesheets/index.css" rel="stylesheet" />
+    <link href="../stylesheets/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="../stylesheets/legendaries.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,21 +34,18 @@
             <a href="/coach">
                 New Coach
             </a>
-            <a href="/coach/login">
-                Login
-            </a>
         </nav>
         </header>
-    <main>
-        <h2>Principal</h2>
-        <div>
-            <h3>New Coach</h3>
-            <form action="/coach/dashboard" method="post">
+    <main class="main-legendaries">
+        <h2>Pokedex - Login</h2>
+        <div class="form-container">
+            <h3>Acessar área restrita</h3>
+            <form action="/coach/dashboard" method="post" class="form">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" name="email" />
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" />
-                <input type="submit" name="entrar" value="entrar" />
+                <input type="submit" name="entrar" class="link-pokemons" value="entrar" />
               </form>
         </div>
     </main>

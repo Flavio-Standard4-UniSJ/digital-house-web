@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link href="../stylesheets/index.css" rel="stylesheet" />
+    <link href="../stylesheets/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="../stylesheets/legendaries.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-</head>
 </head>
 <body>
     <header>
@@ -32,19 +31,13 @@
             <a href="/documentation">
                 Documentation
             </a>
-            <a href="/coach">
-                New Coach
-            </a>
-            <a href="/coach/login">
-                Login
-            </a>
         </nav>
         </header>
-    <main>
+    <main class="main-legendaries">
         <h2>Principal</h2>
-        <div>
+        <div class="form-container">
             <h3>New Lendário</h3>
-            <form action="/legendaries/newLegendary" method="post" enctype="multipart/form-data">
+            <form action="/legendaries/newLegendary" method="post" enctype="multipart/form-data" class="form">
 
                 <label for="name">Nome de Pokemon Lendário</label>
                 <input type="text" id="name" name="name" />
@@ -72,14 +65,11 @@
                 
                 <label for="specialDefense">Defesa Especial</label>
                 <input type="number" id="specialDefense" name="specialDefense" />
-                        
-                <label for="url">url do pokemon</label>
-                <input type="text" id="url" name="url" />
-
+                
                 <label for="foto">escolher foto do perfil do lendário</label>
                 <input type="file" id="foto" name="foto" multiple>
                 
-                <input type="submit" name="salvar" value="salvar" />
+                <input type="submit" name="salvar" class="link-pokemons" value="salvar dados" />
               </form>
         </div>
     </main>

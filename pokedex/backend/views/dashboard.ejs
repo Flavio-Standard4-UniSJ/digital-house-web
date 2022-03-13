@@ -1,9 +1,52 @@
-<%- include('./partials/head');  %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link href="../stylesheets/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../stylesheets/legendaries.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
 <body>
-    <main>
+    
+        <header>
+            <img src="../images/logo.svg" alt="Logo" />
+            <button type="button" class="hamburguer-menu">
+                <img src="../images/hamburguer.svg" alt="Hamburguer Menu" />
+            </button>
+            <nav class="navbar nav-legendaries">
+               <a href="#"><img src="../images/config.png" alt="configurações"></a>
+                <a href="/coach/<%= coach.id %>">
+                    editar
+                </a>
+                <a href="#">
+                    mudar senha
+                </a>
+                <a href="#">
+                    sair
+                </a>
+            </nav>
+            <div>
+                <img src="../images/avatar.png" alt="avatar">
+            <p>Dashboard, olá <strong><%= coach.nome %></strong></p>
+            </div>
+        </header>
+        <main>
         <div>
-            <h1><strong>Pokemon</strong> Dashboard. <%= coach.nome %></h1>
-            <p>You can know the type of Pokemon, its strengths, disadvantages and abilities</p>
+            <div id="dashboard" class="container">                
+                <div class="perfil">
+                    <h3>meu perfil</h3>
+                    <img src="../uploads/<%= coach.perfil %>" alt="minha imagem de perfil">
+                    <p><%= coach.nome %></p>
+                    <p><%= coach.email %></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quam hic iusto aliquid? Odit dolorum commodi ab quae, molestias rem perferendis iste eius praesentium veniam sapiente voluptates, obcaecati ipsam culpa.</p>
+                </div>
+            </div>
         </div>
     </main>
 </body>

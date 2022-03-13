@@ -3,13 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 const multer = require('multer');
 const methodOverride = require('method-override');
+const SwaggerUI = require('swagger-ui-express');
 
 const indexRouter = require('./routes/index');
 const coachRouter = require('./routes/coach');
 const legendariesRouter = require('./routes/legendaries');
 const storage = require('./config/multer');
+const swaggerConfig = require('./swagger.json');
 
 const app = express();
 const upload = multer({storage: storage});
@@ -28,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/coach', coachRouter);
 app.use('/legendaries', legendariesRouter);
+app.use('/api-docs', SwaggerUI.serve, SwaggerUI.setup(swaggerConfig));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

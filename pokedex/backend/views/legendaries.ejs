@@ -1,5 +1,6 @@
 
-<%- include('./partials/head');  %>
+    <%- include('./partials/head');  %>
+    <link rel="stylesheet" href="stylesheets/legendaries.css">
 </head>
 
 <body>
@@ -8,7 +9,7 @@
         <h1>Legendaries</h1>
         <div class="legendarie-details">
             <% if (legendary) { %>
-                <img src="<%= legendary.urlFoto %>" alt="Mew Picture">
+                <img src="images/mew.svg" alt="Mew Picture">
                 <div>
                     <h2> <%= legendary.name %> </h2>
                     <p> <%= legendary.description %></p>
@@ -71,7 +72,7 @@
                 </div>
             </div>
             <div class="carousel-legendarie-box">
-                <img src="images/moltres.svg" alt="Moltres Picture">
+                <img src="images/moltres.svg" alt=Moltres Picture">
                 <div>
                     <p>Moltres</p>
                     <img src="images/pokeball.svg" alt="Pokeball">

@@ -8,6 +8,10 @@
   margin: 0;
   font-family: 'Poppins', sans-serif;
 }
+a { 
+  text-decoration: none;
+  color: #000;  
+}
 
 header {
   display: flex;
@@ -37,6 +41,11 @@ header > button {
 .navbar > a {
   font-size: 1.5rem;
   margin: 0 20px 0 0;    
+}
+nav.navbar #signup {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #5eaf62;
 }
 
 .pikachu {

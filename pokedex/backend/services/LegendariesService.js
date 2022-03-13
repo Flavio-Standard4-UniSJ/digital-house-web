@@ -5,12 +5,14 @@ const LegendariesService = {
         const resultados = await database.legendary.findAll();
         return resultados;
     },
-    pokemonDados: async (name) => {
+    pokemonDados: async (id) => {
         const pokemon = await database.legendary.findOne({
             where: {
-                name
+                id
             }
         });
+        console.log('---------- services ---------');
+        console.log(pokemon);
         return pokemon;
     },
     createLegendary: async ({
@@ -48,7 +50,8 @@ const LegendariesService = {
         defense, 
         attack, 
         experience, 
-        specialDefense)=>{
+        specialDefense,
+        url)=>{
             const resultado = database.legendary.update({
                 name, 
                 description, 
@@ -58,7 +61,8 @@ const LegendariesService = {
                 defense, 
                 attack, 
                 experience, 
-                specialDefense},{
+                specialDefense,
+                url},{
                     where: {
                         id
                     }

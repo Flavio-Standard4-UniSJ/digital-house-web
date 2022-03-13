@@ -14,7 +14,7 @@ router.get('/', controller.index);
 router.get('/login', controller.viewlogin);
 router.post('/dashboard', controller.login);
 router.get('/:id', controller.viewformedit); //localhost:8000/coach/10 - formulario  
-router.post('/',  upload.array('perfil'), validaCoach, controller.create);
-router.put('/',  upload.array('perfil'), validaCoach, controller.update); //localhost:8000/pokedex/
+router.post('/',  upload.single('perfil'), validaCoach, controller.create);
+router.put('/',  upload.single('perfil'), validaCoach, controller.update); //localhost:8000/pokedex/
 
 module.exports = router;

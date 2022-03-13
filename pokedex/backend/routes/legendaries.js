@@ -10,8 +10,9 @@ const upload = multer({storage : storage});
 
 /* GET legendaries. */
 router.get('/', controller.index);
+router.get('/:id', controller.legendaryById);
 router.get('/newLegendary', controller.viewform);
-router.post('/newLegendary', upload.array('foto'), controller.create);
-router.put('/:id', controller.update);
+router.post('/newLegendary', upload.single('foto'), controller.create);
+router.put('/:id', upload.single('foto'),controller.update);
 
 module.exports = router;

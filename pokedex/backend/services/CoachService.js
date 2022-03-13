@@ -12,19 +12,21 @@ const CoachService = {
         });
         return resultado;
     },
-    create: async ({ nome, email, hash }) => {
-        const newcoach = await database.coach.create({ nome, email, senha:hash });
+    create: async ({ nome, email, senhahash, perfil }) => {
+        const newcoach = await database.coach.create({ nome, email, senha:senhahash, perfil });
         return newcoach;
     },
     updatedCoach: async (
         id, 
         nome, 
         email, 
-        senha ) => {
+        senhahash,
+        perfil) => {
         const resultado = await database.coach.update({
             nome, 
             email, 
-            senha },
+            senha: senhahash,
+            perfil},
         {
             where: {id}
         });

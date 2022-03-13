@@ -1,4 +1,5 @@
 const multer = require('multer');
+
 const LegendariesService = require('../services/LegendariesService');
 
 const storage = require('../config/multer');
@@ -10,16 +11,17 @@ const controller = {
         const legendary = await LegendariesService.listLegendaries(); 
         return res.render('legendaries', { legendary});
     },
-    legendary: async (req, res) => {
-        const { name } = req.params;
-        const pokemon = await LegendariesService.pokemonDados(name);
-        return res.json({ pokemon});
+    legendaryById: async (req, res) => {
+        const { id } = req.params;
+        const pokemon = await LegendariesService.pokemonDados(id);
+        return res.render('legendaries', { pokemon});
     },
     viewform: (req,res) => {
         return res.render('newLegendary');
     },
-    create: async (req, res) => {        
-        const foto = req.file;
+    create: async (req, res) => {  
+        //const avatar = req.file
+        const url = req.file.filename;
         const { 
             name, 
             description, 
@@ -29,19 +31,8 @@ const controller = {
             defense, 
             attack, 
             experience, 
-            specialDefense,
-            url
+            specialDefense
         } = req.body;
-        console.log({name, 
-            description, 
-            type, 
-            healthPoints, 
-            specialAttack, 
-            defense, 
-            attack, 
-            experience, 
-            specialDefense,
-            url})
         const legendary = await LegendariesService.createLegendary({
             name, 
             description, 
@@ -56,7 +47,9 @@ const controller = {
         }); 
         return res.render('newLegendary', {legendary});
     },
-    update: (req, res) => { 
+    update: (req, res) => {     
+        //const avatar = req.file
+        const url = req.file.filename;
         const { id } = req.params;
         const { 
             name, 
@@ -79,8 +72,9 @@ const controller = {
             defense, 
             attack, 
             experience, 
-            specialDefense);
-        return res.json();      
+            specialDefense,
+            url);
+        return res.json(updated);      
     }
 }
 

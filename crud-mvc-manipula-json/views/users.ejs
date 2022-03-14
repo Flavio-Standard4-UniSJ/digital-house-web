@@ -5,7 +5,10 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <section>
     <h1><%= title %></h1>
+    <article>
+    <p>CADASTRAR USUARIO</p>
     <form action="/users" method="post" enctype="multipart/form-data">
       <label for="username">Nome de Usuário</label>
       <input type="text" id="username" name="username" />
@@ -15,7 +18,9 @@
       <input type="password" id="senha" name="senha" />
       <label for="foto">selecione foto</label>
       <input type="file" id="foto" name="foto" multiple>
-      <input type="submit" name="salvar" value="salvar" />
+      <input type="submit" name="salvar" value="salvar dados" />
     </form>
+  </article>
+  </section>
   </body>
 </html>

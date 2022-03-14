@@ -3,7 +3,6 @@ const fs = require('fs');
 const multer = require('multer');
 
 const userServices = require('../services/userServices');
-
 const storage = require('../config/multer');
 
 let listUser = [];
@@ -17,7 +16,6 @@ const controller = {
     },
     searchUser: (req, res)=>{
         const { username } = req.params;
-        //listUser abre a lista de todos usuarios
         let usuario =  userServices.busca(username); 
         return res.render('users', { title: 'Express', usuario });
     },
@@ -28,22 +26,24 @@ const controller = {
         }
         const foto = req.file;
         const { username, email, senha } = req.body;
-
-        const newUser = userServices.createUser({ username, email, senha, foto });
-        
+        const newUser = userServices.createUser({ username, email, senha, foto });        
         return res.render('users', { title: 'Express', usuario: newUser });
     },
-    viewformedit: (req, res)=>{
+    viewformconfig: (req, res)=>{
         const { username } = req.params;
         let usuario =  userServices.busca(username); 
-        return res.render('editar', { title: 'Express', usuario: usuario });
+        return res.render('config', { title: 'Express', usuario: usuario });
     },
     update: (req, res) =>{
         const foto = req.file;
         const { identificador, username, email, senha } = req.body;
         const usuarioUpdate = userServices.updatedUser({ identificador, username, email, senha, foto });
-        console.log(usuarioUpdate);
-        return res.render('editar', { title: 'Express', usuario: usuarioUpdate });
+        return res.render('config', { title: 'Express', usuario: usuarioUpdate });
+    },
+    delete: (req, res) =>{
+        const { username } = req.body;
+        const deletado = userServices.userDeletado(username);
+        return res.send('usuario deletado ');
     }
 }
 module.exports=controller;

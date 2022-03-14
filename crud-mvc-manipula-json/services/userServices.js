@@ -6,9 +6,8 @@ const userServices = {
         readUsuarios = fs.readFileSync('./usuarios.json', 'utf-8');
         listUser=JSON.parse(readUsuarios);
         const usuario = listUser.filter((user) => user.username== username);
-        //filter filtra o usuario na lista de usuarios
         if(usuario.length == 0) {
-            return res.status(400).send(`O usuário não está na lista!`);
+            return
         }else {
             return usuario;
         }
@@ -37,10 +36,9 @@ const userServices = {
         foto
     }) =>{
         const usuario = userServices.busca(identificador);
-       
         readUsuarios = fs.readFileSync('./usuarios.json', 'utf-8');
         listUser=JSON.parse(readUsuarios);
-        let listaAtualizada= listUser.map((usuario)=>{
+        listUser.map((usuario)=>{
             if(usuario.username==identificador){
                 usuario.username = username;
                 usuario.email=email;
@@ -48,10 +46,15 @@ const userServices = {
                 usuario.foto=foto;
             }
         })
-        console.log(listaAtualizada);
         fs.writeFileSync('./usuarios.json', JSON.stringify(listUser), 'utf-8');
         return usuario;
-        }
+        },
+     userDeletado: (username)=>{
+        readUsuarios = fs.readFileSync('./usuarios.json', 'utf-8');
+        listUser=JSON.parse(readUsuarios);
+        const usuarioFilter = listUser.filter((user) => user.username !== username);
+        fs.writeFileSync('./usuarios.json', JSON.stringify(usuarioFilter), 'utf-8');
+     }
 }
 
 module.exports = userServices;

@@ -10,9 +10,10 @@ const upload = multer({storage : storage});
 const router = express.Router();
 /* GET users listing. */
 router.get('/', controller.viewform);
-router.get('/:username', controller.searchUser);//busca um usuario
+router.get('/:username', controller.searchUser);//localhost:8000/users/Raikou
 router.post('/', upload.array('foto'), validacao, controller.create);
-router.get('/editar/:username', controller.viewformedit);
-router.put('/editar', upload.array('foto'), validacao, controller.update);
+router.get('/config/:username', controller.viewformconfig);//localhost:8000/users/editar/Raikou
+router.put('/config', upload.array('foto'), validacao, controller.update);
+router.delete('/config', controller.delete);
 
 module.exports = router;

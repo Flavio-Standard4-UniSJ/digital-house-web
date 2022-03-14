@@ -5,17 +5,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <section>
+    <h1>List <%= title %></h1>
   
     <% if(lista.length <= 0){ %>
       <p>Nada a ser mostrado.</p>
     <% }else{ %>
-      <% lista.forEach(item=>{ %>   
-        <ul>
-          <li><%= item.username %></li>
-        </ul>
-      <% }) %>
+      <ul>
+        <% lista.forEach(item=>{ %>   
+            <li><%= item.username %></li>
+        <% }) %>
+      </ul>
     <% } %>
-    
+  </section>
   </body>
 </html>

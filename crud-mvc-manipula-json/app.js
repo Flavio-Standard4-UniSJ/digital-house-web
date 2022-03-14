@@ -1,9 +1,4 @@
-//www.npmjs.com/package/express-generator
-//npm install express-generator -g 
-//instalacao global ja tendo instalado usa-se o comando abaixo para iniciar novo projeto
-//express myApp --view=ejs
-//cd myApp
-//npm install
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -12,6 +7,13 @@ const logger = require('morgan');
 const multer = require('multer');
 const methodOverride = require('method-override');
 
+//www.npmjs.com/package/express-generator
+//npm install express-generator -g 
+//instalacao global ja tendo instalado usa-se o comando abaixo para iniciar novo projeto
+//express myApp --view=ejs
+//cd myApp
+//npm install
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const storage = require('./config/multer');
@@ -19,6 +21,7 @@ const storage = require('./config/multer');
 const app = express();
 
 const upload = multer({storage : storage});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
